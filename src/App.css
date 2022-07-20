@@ -1,0 +1,929 @@
+* {
+  box-sizing: border-box;
+}
+body
+{
+  background: #312233;
+}
+.Header
+{
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  z-index: 100;
+  background: #120d12;
+}
+.HistorialDatos
+{
+  position: relative;
+  width: 100%;
+  height: 256px;
+  overflow-y: scroll;
+}
+.HistorialOldUserData
+{
+  position: relative;
+  display: inline-block;
+  width: 122px;
+  height: 40px;
+  top: -4px;
+  background: #000;
+  align-items: center;
+  border-bottom: 2px solid #fff;
+}
+.HistorialNewUserData
+{
+  position: relative;
+  display: inline-block;
+  width: 122px;
+  height: 40px;
+  background: #000;
+  top: -4px;
+  align-items: center;
+  border-bottom: 2px solid #fff;
+}
+.HistorialPriceData
+{
+  position: relative;
+  display: inline-block;
+  width: 90px;
+  height: 40px;
+  background: #000;
+  top: -4px;
+  align-items: center;
+  border-bottom: 2px solid #fff;
+}
+.HistorialDateData
+{
+  position: relative;
+  display: inline-block;
+  width: 206px;
+  height: 40px;
+  background: #000;
+  top: -4px;
+  align-items: center;
+  border-bottom: 2px solid #fff;
+}
+.HistorialOldUser
+{
+  position: relative;
+  display: inline-block;
+  width: 122px;
+  height: 40px;
+  background: #fff;
+  align-items: center;
+}
+.HistorialNewUser
+{
+  position: relative;
+  display: inline-block;
+  width: 122px;
+  height: 40px;
+  background: #fff;
+  align-items: center;
+}
+.HistorialPrice
+{
+  position: relative;
+  display: inline-block;
+  width: 90px;
+  height: 40px;
+  background: #fff;
+  align-items: center;
+}
+.HistorialDate
+{
+  position: relative;
+  display: inline-block;
+  width: 206px;
+  height: 40px;
+  background: #fff;
+  align-items: center;
+}
+.NombreHistorial
+{
+  position: absolute;
+  left: 50%;
+  top: -20px;
+  transform: translateX(-50%);
+  color: #000;
+  font-weight: 600;
+  font-size: 22px;
+}
+.HistorialData
+{
+  position: absolute;
+  left: 22px;
+  top: 6px;
+  color: #fff;
+  font-weight: 600;
+  margin: auto;
+  font-size: 18px;
+}
+.Price
+{
+  left: 50%;
+  transform: translateX(-50%);
+}
+.ImagenItem
+{
+  position: absolute;
+  top: 80px;
+  left: 80px;
+  width: 290px;
+  height: 360px;
+}
+.CodigoItem
+{
+  position: absolute;
+  color: #fff;
+  left: 106px;
+  top: -52px;
+  font-size: 56px;
+}
+.PaginaItem
+{
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 52px);
+  top: 52px;
+}
+.PrecioItemTexto
+{
+  position: absolute;
+  font-size: 36px;
+  top: 410px;
+  left: 124px;
+  color: #fff;
+}
+.PrecioItemNumero
+{
+  position: absolute;
+  font-size: 36px;
+  top: 410px;
+  left: 236px;
+  color: #fff;
+}
+.RazaItemTexto
+{
+  position: absolute;
+  font-size: 36px;
+  left: 424px;
+  color: #fff;
+}
+.RazaItemRaza
+{
+  position: absolute;
+  font-size: 36px;
+  left: 514px;
+  color: #fff;
+}
+.MaterialItemTexto
+{
+  position: absolute;
+  font-size: 36px;
+  left: 424px;
+  top: 44px;
+  color: #fff;
+}
+.MaterialItemNombre
+{
+  position: absolute;
+  font-size: 36px;
+  left: 570px;
+  top: 44px;
+  color: #fff;
+}
+.InputFiltros[type=radio]
+{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.InputFiltros[type=radio]:checked
+{ 
+  display: inline-block;
+  height: 35px;
+  margin: 0;
+  color: #5E803C;
+  width: 35px;
+  top: 0px;
+  right: 0px;
+}
+.SignUpBoton
+{
+  position: absolute;
+  width: 80px;
+  top: 16px;
+  height: 39px;
+  border-radius: 6px;
+  border: 2px solid #5E803C;
+  left: calc(100% - 118px);
+  cursor: pointer;
+  transition: .3s;
+  color: #fff;
+}
+.SignUpBoton:hover
+{
+	background-color: #5E803C;
+	color: #000;
+}
+.TextoBotonSignUp
+{
+  position: absolute;
+  font-weight: 200;
+  font-size: 17px;
+  width: 61px;
+  left: 50%;
+  transform: translateX(calc(-50% + 3px));
+  top: -12px;
+}
+.LoginBoton
+{
+  position: absolute;
+  width: 65px;
+  top: 16px;
+  height: 39px;
+  border-radius: 6px;
+  border: 2px solid #5E803C;
+  left: calc(100% - 194px);
+  cursor: pointer;
+  transition: .3s;
+  color: #fff;
+}
+.spanUsuario
+{
+	position: absolute;
+    top: 74px;
+    left: -2px;
+    width: 120px;
+    height: 2px;
+    background: #000;
+}
+.logOutUsuario
+{
+	position: absolute;
+    width: 120px;
+    height: 39px;
+    top: 76px;
+    border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+    left: -2px;
+    border: 2px solid #5E803C;
+    background: #5E803C;
+}
+.OpcionesUsuario
+{
+	position: absolute;
+    width: 120px;
+    height: 78px;
+    top: -2px;
+    border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+    left: -2px;
+    border: 2px solid #5E803C;
+    background: #5E803C;
+}
+.SesionBoton {
+	position: absolute;
+  	width: 120px;
+  	top: 16px;
+  	height: 39px;
+  	border-radius: 6px;
+  	border: 2px solid #5E803C;
+  	left: calc(100% - 164px);
+  	cursor: pointer;
+  	transition: .3s;
+  	color: #fff;
+}
+.SesionBoton:hover {
+	background:#5E803C;
+	color: #000;
+}
+.LogoContainer
+{
+	position: absolute;
+	left: 30px;
+	width: 43px;
+	top: 10px;
+	height: 50px;
+}
+.LogoContainer
+{
+	cursor: pointer;
+}
+.LogoContainer span
+{
+    position: absolute;
+    width: 36px;
+    background-color: #5E803C;
+    border-radius: 4px;
+}
+.LogoContainer span:nth-child(1)
+{
+	width: 50px;
+    transform: rotate(-70deg);
+	top: 23px;
+	left: -12px;
+    height: 5px;
+}
+.LogoContainer span:nth-child(2)
+{
+	width: 50px;
+    transform: rotate(70deg);
+	top: 23px;
+	left: 5px;
+    height: 5px;
+}
+.LogoContainer span:nth-child(3)
+{
+	width: 30px;
+    transform: rotate(-43deg);
+	top: 22px;
+	left: 16px;
+    height: 4px;
+}
+.LogoContainer span:nth-child(4)
+{
+	width: 30px;
+    transform: rotate(43deg);
+	top: 22px;
+	left: -3px;
+    height: 4px;
+}
+.LogoContainer span:nth-child(5)
+{
+	width: 4px;
+	top: 21px;
+	left: 20px;
+    height: 4px;
+}
+.SesionBoton::after {
+	position: absolute;
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+	color: #fff;
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+	left: 122px;
+	top: 15px;
+}
+.LoginBoton:hover
+{
+	background-color: #5E803C;
+	color: #000;
+}
+
+.CuadradoPlus
+{
+  position: absolute;
+  background: #5E803C;
+  width: 34px;
+  left: 170px;
+  top: 202px;
+  height: 34px;
+  z-index: 20;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.CuadradoUsuario
+{
+  position: absolute;
+  background: #5E803C;
+  width: 70px;
+  left: 135px;
+  top: 202px;
+  z-index: 30;
+  height: 34px;
+  border-radius: 4px;
+}
+.CuadradoUsuarioItem
+{
+  position: absolute;
+  background: #5E803C;
+  width: 130px;
+  left: 145px;
+  top: 502px;
+  z-index: 30;
+  height: 34px;
+  border-radius: 4px;
+}
+.CuadradoUsuarioTexto
+{
+  position: absolute;
+  color: #fff;
+  top: -14px;
+  left: 6px;
+}
+.CuadradoUsuarioItemTexto
+{
+  position: absolute;
+  color: #fff;
+  top: -18px;
+  font-size: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.HistorialPadre
+{
+  position: absolute;
+  background: #000;
+  border: 4px solid #fff;
+  width: 565px;
+  height: 320px;
+  left: 406px;
+  top: 140px;
+}
+.HistorialTituloPadre
+{
+  position: relative;
+  height: 56px;
+  width: 100%;
+  border-bottom: 4px solid #fff;
+}
+.HistorialTitulo
+{
+  position: absolute;
+  color: #fff;
+  width: 312px;
+  font-size: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
+.CambiarPrecio
+{
+  position: absolute;
+  left: 416px;
+  top: 524px;
+  background: black;
+  width: 341px;
+  height: 41px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.CambiarPrecioBoton
+{
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  z-index: 100;
+  width: 106px;
+  cursor: pointer;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background: black;
+}
+.CambiarPrecioBotonTexto
+{
+  position: absolute;
+  font-size: 23px;
+  left: 16px;
+  top: -20px;
+  transition: .2s linear;
+  color: #fff;
+}
+.CambiarPrecioBotonTexto:hover
+{
+  color: #5E803C;
+}
+.CambiarPrecioInput
+{
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  top: -14px;
+  width: 130px;
+}
+
+.TextoBotonLogin
+{
+  position: absolute;
+  font-weight: 200;
+  font-size: 17px;
+  left: 50%;
+  transform: translateX(calc(-50% - 1px));
+  top: -12px;
+}
+.TextoBotonAbrirLogin
+{
+	position: absolute;
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+    height: 24px;
+    width: 120px;
+    font-size: 17px;
+    left: -2px;
+    top: -12px;
+	transition: .1s;
+}
+.TextoBotonAbrirLogin:hover
+{
+	background: #4e702c;
+	cursor: pointer;
+}
+.Form__Titulo
+{
+  position: absolute;
+  left: 50%;
+  transform: translateX(calc(-50% - 1px));
+  top: -14px;
+  text-align: center;
+  font-size: 34px;
+  width: 196px;
+  font-weight: 600;
+  color: #000;
+}
+
+.TextoRecuperar
+{
+  position: absolute;
+  left: 50%;
+  transform: translateX(calc(-50% + 3px));
+  top: 112px;
+  font-size: 16px;
+  width: 224px;
+  font-weight: 600;
+  color: #000;
+}
+
+.TextoRecuperarVerificar
+{
+  position: absolute;
+  left: 50%;
+  transform: translateX(calc(-50% + 8px));
+  top: 174px;
+  font-size: 16px;
+  width: 224px;
+  font-weight: 600;
+  color: #000;
+}
+
+.TextoInput
+{
+  position: absolute;
+  width: 164px;
+  top: 390px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+}
+
+.PedirEmail
+{
+  width: 200px;
+  top: 182px;
+}
+
+.TextoInput:hover
+{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.IconoTarjeta
+{
+  position: absolute;
+  width: 30px;
+  top: 7px;
+  left: 6px;
+}
+.CodigoTarjeta
+{
+  position: absolute;
+  color: #fff;
+  left: 40px;
+  top: -17px;
+  font-size: 23px;
+}
+
+.RazaTarjeta
+{
+  position: absolute;
+  color: #fff;
+  left: 140px;
+  top: -17px;
+  font-size: 23px;
+}
+
+.MaterialTarjeta
+{
+  position: absolute;
+  color: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -17px;
+  font-size: 23px;
+}
+
+.ImagenTarjeta
+{
+  position: absolute;
+  width: 170px;
+  cursor: pointer;
+  height: 114px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 80px;
+}
+
+.PrecioTarjetaTexto
+{
+  position: absolute;
+  color: #fff;
+  left: 12px;
+  top: 180px;
+  font-size: 23px;
+}
+
+.PrecioTarjetaNumero
+{
+  position: absolute;
+  color: #fff;
+  left: 84px;
+  top: 180px;
+  font-size: 23px;
+}
+
+.UsuarioTarjetaTexto
+{
+  position: absolute;
+  color: #fff;
+  left: 12px;
+  top: 216px;
+  font-size: 23px;
+}
+
+.UsuarioTarjetaNombre
+{
+  position: absolute;
+  color: #fff;
+  left: 90px;
+  top: 216px;
+  font-size: 23px;
+}
+
+.Filtros
+{
+  position: fixed;
+  display: inline-block;
+  overflow-y: scroll;
+  width: 200px;
+  top: 70px;
+  background: #120d12;
+  height: calc(100vh - 70px);
+  border-top: 1px solid #fff;
+}
+
+.RazaFiltro
+{
+  position: relative;
+  width: auto;
+  height: 286px;
+  border-top: 1px solid #fff;
+  text-align: center;
+}
+
+.ClaseFiltro
+{
+  position: relative;
+  width: auto;
+  height: 320px;
+  border-top: 1px solid #fff;
+  text-align: center;
+}
+
+.MaterialFiltro
+{
+  position: relative;
+  width: auto;
+  height: 286px;
+  border-top: 1px solid #fff;
+  text-align: center;
+}
+
+.FiltroTitulo
+{
+  position: relative;
+  width: auto;
+  height: 40px;
+  text-align: center;
+}
+
+.TituloFiltro
+{
+  display: inline-block;
+  font-size: 26px;
+  font-weight: 400;
+  color: #fff;
+  margin: 0;
+}
+.TituloReset
+{
+  position: absolute;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  margin: 0;
+  top: 7px;
+  left: 138px;
+  cursor: pointer;
+}
+
+.ImgClase
+{
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 30px;
+}
+
+.NombreClase
+{
+  position: absolute;
+  top: -38px;
+  left: 44px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 400;
+}
+.paginacion
+{
+	position: relative;
+	width: 100%;
+	background: #120d12;
+	height: 50px;
+	margin-top: 44px;
+}
+.anterior
+{
+	position: relative;
+	width: 40px;
+	height: 42px;
+	display: inline-block;
+}
+.numeros
+{
+	position: relative;
+	width: 220px;
+	height: 42px;
+	display: inline-block;
+}
+.siguiente
+{
+	position: relative;
+	width: 40px;
+	height: 42px;
+	display: inline-block;
+}
+.pNumero
+{
+	position: relative;
+	color:#5E803C;
+	cursor: pointer;
+	top: -15px;
+	text-align: center;
+}
+.contenedorTextoComps {
+	position: relative;
+    height: 6px;
+    top: 10px;
+}
+.textoContenedorTextoComps {
+	position: absolute;
+    left: 37px;
+    top: -14px;
+    font-size: 16px;
+    color: #ccc;
+}
+.pNumeroPenultimo
+{
+	position: relative;
+    color: #5E803C;
+    top: -40px;
+    font-size: 30px;
+    text-align: center;
+}
+.pNumeroEscogido
+{
+	position: relative;
+	color:#5E803C;
+	cursor: pointer;
+	top: -17px;
+	text-align: center;
+}
+.numero
+{
+	position: absolute;
+	width: 30px;
+	top: 5px;
+	height: 31px;
+}
+.numeroEscogido
+{
+	position: absolute;
+	width: 30px;
+	top: 5px;
+	height: 31px;
+	border-radius: 4px;
+	border: 2px solid #5E803C;
+}
+.numeros div:nth-child(1)
+{
+	left: 13px;
+}
+.numeros div:nth-child(2)
+{
+	left: 55px;
+}
+.numeros div:nth-child(3)
+{
+	left: 97px;
+}
+.numeros div:nth-child(4)
+{
+	left: 139px;
+}
+.numeros div:nth-child(5)
+{
+	left: 181px;
+}
+
+.containerPag
+{
+	position: relative;
+    width: 300px;
+    height: 42px;
+    margin: 0 auto;
+    top: 4px;
+}
+.infoFooter {
+	border-top: 1px solid #fff;
+	position: relative;
+    height: 160px;
+    font-size: 16px;
+    color: #DFEEFF;
+	background: #120d12;
+}
+.pInfoFooter {
+	position: relative;
+	top: 11px;
+	left: 20px;
+}
+.ItemsContenedor {
+	display: inline-block;
+    position: relative;
+    top: 70px;
+    left: 200px;
+    width: calc(100vw - 217px);
+    height: calc(100vh - 70px);
+    font-size: 18px;
+}
+.TextoLupa
+{
+  position: absolute;
+  top:280px;
+  width: 400px;
+  left:50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  font-weight: 700;
+  color: #111;
+}
+.Filtros::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.Filtros::-webkit-scrollbar:vertical {
+    width:9px;
+}
+
+.Filtros::-webkit-scrollbar-button:increment,.Filtros::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.Filtros::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.Filtros::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 20px;
+    border: 2px solid #000;
+}
+
+.Filtros::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
