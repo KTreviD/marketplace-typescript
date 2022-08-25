@@ -1,6 +1,26 @@
 const express = require('express');
-const mysql = require('mysql');
+const http = require('http');
 const app = express();
+const server = http.createServer(app);
+
+const socketio = require('socket.io');
+const io = socketio(server);
+const mysql = require('mysql');
+
+
+io.on('connection', socket => {
+	console.log(socket.id);
+	socket.on('conectado', Usuario => {
+		console.log(Usuario + ' conectado');
+	});
+
+	socket.on('mensaje', (Usuario, mensaje, usuarioAjeno) => {
+		io.emit('devolverMensaje', {Usuario, mensaje, usuarioAjeno});
+	});
+
+});
+
+
 app.use(express.json());
 //const bcrypt = require("bcrypt");
 //const session = require("express-session");
@@ -91,19 +111,6 @@ app.post('/api/precio', (req, res) => {
 	conexion.end();
 });
 
-/*app.get('/', (req,res) => {
-	req.session.usuario = "Juan Perez";
-	req.session.rol = "Admin";
-	req.session.visitas = req.session.visitas ? ++req.session.visitas : 1;
-
-	if(req.session.usuario) {
-		res.send(`El usuario ${req.session.usuario} del rol ${req.session.rol} ha visitado esta pagina ${req.session.visitas} veces` + "Logeado" + req.session.usuario);
-	}
-	else {
-		res.send(`El usuario ${req.session.usuario} del rol ${req.session.rol} ha visitado esta pagina ${req.session.visitas} veces` + "No Logeado");
-	}
-});*/
-
 app.post('/api/dashboard', (req,res) => {
 	const Clase = req.body.Clase;
 	const Raza = req.body.Raza;
@@ -164,14 +171,11 @@ app.post('/api/setuser', (req,res) => {
 		conexion.query(`INSERT INTO historial (Codigo, Id, OldUser, NewUser, Price, Date)
 						VALUES ("${Codigo}","${Id}","${OldUser}","${NewUser}","${Price}", CURRENT_TIMESTAMP)`, function(error, resSelect) {
 			if(error) throw error;
+			console.log(resSelect);
 		});
 		conexion.end();
 	});
 });
 
-/*app.get('/api/login', (req,res) => {
-	res.status(200).send(req.session);
-});*/
-
 const port = process.env.port || 90;
-app.listen(port, () => console.log(`Escuchando en puerto ${port}`));
+server.listen(port, () => console.log(`Escuchando en puerto ${port}`));

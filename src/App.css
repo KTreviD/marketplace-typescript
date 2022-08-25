@@ -254,9 +254,16 @@ body
   transition: .3s;
   color: #fff;
 }
-.spanUsuario
-{
-	position: absolute;
+.spanUsuario1 {
+    position: absolute;
+    top: 35px;
+    left: -2px;
+    width: 120px;
+    height: 2px;
+    background: #000;
+}
+.spanUsuario2 {
+    position: absolute;
     top: 74px;
     left: -2px;
     width: 120px;
@@ -275,17 +282,26 @@ body
     border: 2px solid #5E803C;
     background: #5E803C;
 }
-.OpcionesUsuario
+.PerfilUsuario
 {
 	position: absolute;
     width: 120px;
-    height: 78px;
+    height: 39px;
     top: -2px;
     border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
     left: -2px;
     border: 2px solid #5E803C;
     background: #5E803C;
+}
+.OpcionesUsuario {
+    position: absolute;
+    width: 120px;
+    height: 39px;
+    top: 37px;
+    left: -2px;
+    border-left: 2px solid #5E803C;
+    border-right: 2px solid #5E803C;
 }
 .SesionBoton {
 	position: absolute;
@@ -405,6 +421,13 @@ body
   height: 34px;
   border-radius: 4px;
 }
+.CuadradoUsuarioTexto
+{
+  position: absolute;
+  color: #fff;
+  top: -14px;
+  left: 6px;
+}
 .CuadradoUsuarioItem
 {
   position: absolute;
@@ -416,21 +439,141 @@ body
   height: 34px;
   border-radius: 4px;
 }
-.CuadradoUsuarioTexto
+.VentanaMensajes
 {
-  position: absolute;
-  color: #fff;
-  top: -14px;
-  left: 6px;
+	position: relative;
+	width: 210px;
+	left: 20px;
+	height: 270px;
+	top: 50px;
+}
+.Contenedor
+{
+	position: absolute;
+	top: 70px;
+	height: 500px;
+	width: 100%;
+}
+.NombreFoto
+{
+	position: relative;
+	height: 250px;
+	width: 100%;
+}
+.nombrePerfil
+{
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	width: fit-content;
+	font-size: 44px;
+	color: #fff;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+.fotoDefault
+{
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius: 49%;
+	width: 150px;
+}
+.ContenedorNombre
+{
+	position: relative;
+	width: 100%;
+	height: 23px;
+}
+.NombreUsuario
+{
+	position: absolute;
+	margin-bottom: 2px;
+}
+.ContenedorMsg
+{
+	position: relative;
+	width: 100%;
+	margin-bottom: 4px;
+	height: fit-content;
+}
+.Mensajes
+{
+	background: #fff;
+	width: 210px;
+	height: 234px;
+	overflow-y: scroll;
+}
+.Mensaje
+{
+	position:sticky;
+	overflow-wrap: break-word;
+	border-radius: 6px;
+	width: fit-content;
+	max-width: 71%;
+	padding: 0px 4px 5px 4px;
+}
+.AjenoN
+{
+	left: 6px;
+}
+.PropioN
+{
+	right: 6px;
+}
+.Ajeno
+{
+	left: 6px;
+	background: #aaa;
+}
+.Propio
+{
+	left: 100%;
+	margin-right: 6px;
+	background: #5E803C;
+}
+.NavAbajo
+{
+	position: relative;
+	background: #120d12;
+	width: 100%;
+	height: 36px;
+}
+.EscribirMsg
+{
+	position: relative;
+	display: inline-block;
+	resize: none;
+	top: 3px;
+	left: 3px;
+	width: 170px;
+	height: 30px;
+}
+.SubMsg
+{
+	display: inline-block;
+	position: relative;
+	width: 30px;
+	left: 6px;
+	top: -8px;
+	height: 30px;
 }
 .CuadradoUsuarioItemTexto
 {
   position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 100%;
   color: #fff;
+  border-radius: 4px;
   top: -18px;
   font-size: 20px;
   left: 50%;
   transform: translateX(-50%);
+}
+.HoverPointer
+{
+	cursor: pointer;
 }
 .HistorialPadre
 {
@@ -926,4 +1069,66 @@ body
 
 .Filtros::-webkit-scrollbar-track {
     border-radius: 10px;  
+}
+
+.MensajesItems
+{
+	position: relative;
+	background: red;
+	width: 100%;
+	height: 600px;
+}
+.SelectorContenedor
+{
+	position: relative;
+	background: blue;
+	width: 100%;
+	height: 42px;
+}
+.MensajesSelector
+{
+
+}
+.ObjetosSelector
+{
+
+}
+.ContenedorCondicional
+{
+	position: relative;
+	background: green;
+	width: 100%;
+	height: 558px;
+}
+.ContenedorChats
+{
+	position: relative;
+	display: inline-block;
+	background: purple;
+	width: 100%;
+	height: 558px;
+}
+.ChatsSelector
+{
+	position: relative;
+	display: inline-block;
+	background: blueviolet;
+	width: 154px;
+	height: 558px;
+}
+.Chats
+{
+	position: relative;
+	background: red;
+	border-bottom: 2px solid #000;
+	width: 154px;
+	height: 50px;
+}
+.ChatAbierto
+{
+	position: absolute;
+	display: inline-block;
+	height: 558px;
+	width: calc(100% - 154px);
+	background: yellow;
 }

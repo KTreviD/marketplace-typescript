@@ -6,6 +6,8 @@ import { DivInputFormulario } from './DivInputFormulario';
 import { MensajeErrorComp } from './MensajeErrorComp';
 import { Header } from '../Header/Header';
 import Cookies from 'universal-cookie';
+import Socket from '../Socket/socket';
+
 
 export const Login = () => 
 {
@@ -46,6 +48,9 @@ export const Login = () =>
 		}
 		else {
 			cookies.set('Usuario', data, {path:'/' });
+			console.log(Socket.id);
+			Socket.emit('conectado', data);
+			
 			cambiarEsDashboard(true);
 		}
 	}

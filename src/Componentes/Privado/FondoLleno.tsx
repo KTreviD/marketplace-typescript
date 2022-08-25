@@ -17,16 +17,17 @@ type Item = {
 }[]
 
 export const FondoLleno = () => {
+
 	const url = 'http://localhost:90/api/dashboard';
 	const [contenidoComponentes, cambiarContenidoComponentes] = useState<JSX.Element[]>();
 	const [banderaVacioComponentes, cambiarBanderaVacioComponentes] = useState<boolean>(false);
 	const [numeros, cambiarNumeros] = useState<Array<JSX.Element>>();
-	const [pagNum, cambiarPagNum] = useState<number>(1);
+	const [pagNumActual, cambiarPagNumActual] = useState<number>(1);
 	const [maxNum, cambiarMaxNum] = useState<number>(0);
 	const [sumarPagNum, cambiarSumarPagNum] = useState<number>(0);
 	const [cuantosComponentesUltimaPag, cambiarCuantosComponentesUltimaPag] = useState<number>(0);
 
-	localStorage.setItem('PagNum', pagNum.toString());
+	localStorage.setItem('PagNum', pagNumActual.toString());
 
 	const fondoVacio = () => {
 		cambiarBanderaVacioComponentes(false);
@@ -51,30 +52,30 @@ export const FondoLleno = () => {
 		cambiarContenidoComponentes(arregloComponentes);
 	};
 
-	const crearNumerosPaginas = (length:number) => {
-		length = Math.ceil(length / 10);
-		cambiarMaxNum(length);
-		const numerosPaginaDiv = new Array(length);
-		const forVar = length > 5 ? 5 : length;
-		for(let i = 0 ; i < forVar ; i++) {
-			const Max = i === 4 ? length : (i + 1 + sumarPagNum);
-			const isPenultimo = (i === 3 && length > 5 && pagNum < (length - 4)) ? true : false;
-			numerosPaginaDiv[i] = isPenultimo ?
+	const crearNumerosPaginas = (numResultados:number) => {
+		const maxPag = Math.ceil(numResultados / 10);
+		cambiarMaxNum(maxPag);
+		const cantidadSelecNumerosPagina = maxPag > 5 ? 5 : maxPag;
+		const selecNumerosPagina = new Array(cantidadSelecNumerosPagina);
+		for(let i = 0 ; i < cantidadSelecNumerosPagina ; i++) {
+			const valorPag = i === 4 ? maxPag : (i + 1 + sumarPagNum);
+			const isPenultimo = (i === 3 && maxPag > 5 && pagNumActual < (maxPag - 4)) ? true : false;
+			selecNumerosPagina[i] = isPenultimo ?
 				<div key={i} className={'numero'}>
 					<p className={'pNumeroPenultimo'}>...</p>
 				</div> : 
-				<div onClick={()=>handleCambiarPagNum(Max, length)} key={i} className={Max === pagNum ? 'numeroEscogido' : 'numero'}>
-					<p className={Max === pagNum ? 'pNumeroEscogido' : 'pNumero'}>{Max}</p>
+				<div onClick={()=>handleCambiarPagNum(valorPag, maxPag)} key={i} className={valorPag === pagNumActual ? 'numeroEscogido' : 'numero'}>
+					<p className={valorPag === pagNumActual ? 'pNumeroEscogido' : 'pNumero'}>{valorPag}</p>
 				</div> ;
 		}
-		cambiarNumeros(numerosPaginaDiv);
+		cambiarNumeros(selecNumerosPagina);
 	};
 
-	const handleCambiarPagNum = (numero:number, max:number) => {
-		cambiarPagNum(numero);
+	const handleCambiarPagNum = (valorPag:number, max:number) => {
+		cambiarPagNumActual(valorPag);
 		if(max > 5) {
-			if(numero > (max - 5)) cambiarSumarPagNum(max - 5);
-			else cambiarSumarPagNum(numero - 1);
+			if(valorPag > (max - 5)) cambiarSumarPagNum(max - 5);
+			else cambiarSumarPagNum(valorPag - 1);
 		}
 	};
 
@@ -96,33 +97,33 @@ export const FondoLleno = () => {
 			Clase: localStorage.getItem('Clase'),
 			Raza: localStorage.getItem('Raza'),
 			Material: localStorage.getItem('Material'),
-			PagNum: pagNum
+			PagNum: pagNumActual
 		}).then(res => {
 			creadora(res.data.prueba , res.data.length);
 		});
 	};
 
+	useEffect(Iniciar, [pagNumActual]);
+
 	const handleAntPag = () => {
-		if(pagNum > 1) {
-			cambiarPagNum(pagNum - 1);
-			if(sumarPagNum > 0 && pagNum < (maxNum - 3)) cambiarSumarPagNum(sumarPagNum - 1);
+		if(pagNumActual > 1) {
+			cambiarPagNumActual(pagNumActual - 1);
+			if(sumarPagNum > 0 && pagNumActual < (maxNum - 3)) cambiarSumarPagNum(sumarPagNum - 1);
 		}
 	};
 
 	const handleSigPag = () => {
-		if(pagNum < maxNum) {
-			cambiarPagNum(pagNum + 1);
-			if(pagNum < (maxNum - 4)) cambiarSumarPagNum(sumarPagNum + 1);
+		if(pagNumActual < maxNum) {
+			cambiarPagNumActual(pagNumActual + 1);
+			if(pagNumActual < (maxNum - 4)) cambiarSumarPagNum(sumarPagNum + 1);
 		}
 	};
-
-	useEffect(Iniciar, [pagNum]);
 
 	return <>
 		{banderaVacioComponentes === false && <FondoVacio/>}
 		{banderaVacioComponentes === true && 
 		<div className='contenedorTextoComps'>
-			<p className='textoContenedorTextoComps'>Resultados {(pagNum - 1) * 10 + 1}-{pagNum * 10} de {((maxNum - 1) * 10) + cuantosComponentesUltimaPag}</p>
+			<p className='textoContenedorTextoComps'>Resultados {(pagNumActual - 1) * 10 + 1}-{pagNumActual * 10} de {((maxNum - 1) * 10) + cuantosComponentesUltimaPag}</p>
 		</div>
 		}
 		{banderaVacioComponentes === true && contenidoComponentes}

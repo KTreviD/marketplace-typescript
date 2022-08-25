@@ -51,9 +51,8 @@ export const PaginaItem = () => {
 	};
 
 	const crearPagina = (respuestaAxiosItem: Item) => {
-		const usuario = respuestaAxiosItem[0].Usuario === '.' ? 'Nadie' : respuestaAxiosItem[0].Usuario;
-		if (usuario === usuarioCookie) cambiarPermisoPrecio(true);
-		const pagina = <Pagina respuestaAxios={respuestaAxiosItem} usuario={usuario} usuarioCookie={usuarioCookie}/>;
+		if (respuestaAxiosItem[0].Usuario === usuarioCookie) cambiarPermisoPrecio(true);
+		const pagina = <Pagina respuestaAxios={respuestaAxiosItem} usuario={respuestaAxiosItem[0].Usuario} usuarioCookie={usuarioCookie}/>;
 		cambiarContenido(pagina);
 	};
 

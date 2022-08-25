@@ -37,6 +37,7 @@ module.exports = {
 		'semi': [
 			'error',
 			'always'
-		],'react/prop-types': 'off'
+		],'react/prop-types': 'off',
+		'@typescript-eslint/no-var-requires': 0
 	}
 };
